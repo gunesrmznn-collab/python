@@ -1,0 +1,32 @@
+import random
+class SayıTahminOyunu:
+
+    def __init__(self):
+        print("Sayı Tahmin Oyununa Hoşgeldiinn <3 ")
+        print("1 ile 100 arasında bir sayı tuttum. bakalım bulabilecek misin?")
+
+        self.rastgele_sayı = random.randint(1, 100)
+        self.deneme_sayısı = 0
+        
+    def oyunu_baslat(self):
+                while True:
+                    tahmin_str = input("tahminin nedir?: ")
+                    if not tahmin_str.isdigit():
+                         print("Lütfen sadece sayı giriniz!")
+                         continue
+                    
+                    tahmin = int(tahmin_str)
+
+                    self.deneme_sayısı += 1
+
+                    if tahmin < self.rastgele_sayı:
+                        print("Daha BÜYÜK bir sayı söylemelisin. ")
+                    elif tahmin > self.rastgele_sayı:
+                        print("Daha KÜÇÜK bir sayı söylemelisin. ")
+                    else:
+                        print(f"🎉 Tebrikler! Doğru sayıyı buldun: {self.rastgele_sayı}")
+                        print(f"Toplam {self.deneme_sayısı} denemede buldun. ")
+                        break 
+if __name__ == "__main__":
+     oyun = SayıTahminOyunu()
+     oyun.oyunu_baslat()
