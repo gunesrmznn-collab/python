@@ -1,0 +1,51 @@
+def toplama(a, b):
+    return a + b
+
+def cikarma(a, b):
+    return a - b
+
+def carpma(a, b):
+    return a * b
+
+def bolme(a, b):
+    if b == 0:
+        return "HATA: sıfıra bölme yapılamaz!"
+    return a / b
+
+print("=== HESAP MAKİNESİ ===")
+
+while True:
+    print("\nYapmak istediğin işlemi seç:")
+    print("1 - Toplama")
+    print("2 - Çıkarma")
+    print("3 - Çarpma")
+    print("4 - Bölme")
+    print("5 - Çıkış")
+
+    secim = input("seçimin: ")
+
+    if secim == "5":
+        print("Program kapatılıyor...")
+        break
+
+    if secim not in ["1", "2", "3", "4"]:
+        print("Geçersiz seçim! Tekrar dene.")
+        continue
+
+    try:
+        sayi1 = float(input("1. sayıyı gir: "))
+        sayi2 = float(input("2. sayıyı gir: "))
+    except ValueError:
+        print("Lütfen sadece sayı gir!")
+        continue
+
+    if secim == "1":
+        sonuc = toplama(sayi1, sayi2)
+    elif secim == "2":
+        sonuc = cikarma(sayi1, sayi2)
+    elif secim == "3":
+        sonuc = carpma(sayi1, sayi2)
+    elif secim == "4":
+        sonuc = bolme(sayi1, sayi2)
+
+    print("Sonuç:", sonuc)
